@@ -9,7 +9,7 @@ const StudentList = () => {
 
   const loadData = async () => {
     await axios
-      .get(`${process.env.SERVER_URL}/students`)
+      .get(`https://abc-server.onrender.com/api/v1/students`)
       .then((response) => setData(response.data))
       .catch((err) => console.error(err));
   };
