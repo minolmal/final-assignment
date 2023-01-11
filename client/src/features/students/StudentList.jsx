@@ -9,7 +9,7 @@ const StudentList = () => {
 
   const loadData = async () => {
     await axios
-      .get("http://localhost:8080/api/v1/students")
+      .get(`${process.env.SERVER_URL}/students`)
       .then((response) => setData(response.data))
       .catch((err) => console.error(err));
   };

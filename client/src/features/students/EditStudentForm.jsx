@@ -20,7 +20,7 @@ const EditStudentForm = ({ student }) => {
   const onUpdateStudentClicked = async (e) => {
     if (canSave) {
       await axios
-        .patch(`http://localhost:8080/api/v1/students/${student.id}`, {
+        .patch(`${process.env.SERVER_URL}/students/${student.id}`, {
           name: name,
           age: age,
           contact: contact,

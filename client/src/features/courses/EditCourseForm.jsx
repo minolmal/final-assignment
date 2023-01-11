@@ -43,7 +43,7 @@ const EditCourseForm = ({ course }) => {
 
   const onDeleteStudentClicked = async (e) => {
     await axios
-      .delete(`http://localhost:8080/api/v1/courses/${course.id}`, {
+      .delete(`${process.env.SERVER_URL}/courses/${course.id}`, {
         id: course.id,
       })
       .then((response) => {

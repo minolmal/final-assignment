@@ -6,4 +6,3 @@
 - **ExpressJS**
 - **MySQL**
 
-https://abc-server.onrender.com:10000
