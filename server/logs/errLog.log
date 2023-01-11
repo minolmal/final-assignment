@@ -1,0 +1,7 @@
+20230105	19:37:30	97957691-48f5-45db-a0a6-53b0f2adb775	ReferenceError: freedb_CourseDetails is not defined	POST	/learners	undefined
+20230109	23:14:46	0cdbe249-b6a0-4720-9f03-cffcbb63941e	ReferenceError: sqlUpdateQuery is not defined	DELETE	/api/v1/students	undefined
+20230110	15:12:53	b0ebe70e-8a08-4ba6-976c-c61222448f01	Error: Not allowed by CORS	GET	/api/v1/students	http://localhost:3000
+20230110	15:12:53	13e79772-50d4-4683-ba28-fc77d60f38b9	Error: Not allowed by CORS	GET	/api/v1/students	http://localhost:3000
+20230110	15:13:55	a1593800-fcfe-42da-b86b-a47c2ca14839	Error: Not allowed by CORS	GET	/api/v1/students	http://localhost:3000
+20230110	15:13:55	dd15a13f-2df5-4351-b681-e0a5940f1982	Error: Not allowed by CORS	GET	/api/v1/students	http://localhost:3000
+20230111	01:05:07	ebeb26c1-92e4-48cd-992f-3a371f527464	SyntaxError: Unexpected token / in JSON at position 21	DELETE	/api/v1/students	undefined
