@@ -579,3 +579,4 @@
 20230111	18:42:01	dae669a1-728d-4a2e-b104-1873b6bf38af	OPTIONS	/api/v1/courses/1	http://localhost:3000
 20230111	18:42:01	511b7049-f3b2-4102-9d06-7cf070b4dbfc	DELETE	/api/v1/courses/1	http://localhost:3000
 20230111	18:42:01	2d19fd1c-5ddb-4c9d-9c9a-d29fce62d8bb	GET	/api/v1/courses	http://localhost:3000
+20230111	20:28:45	2055765c-1725-4dc2-9443-8dcecb8ecf32	GET	/api/v1/students	undefined
