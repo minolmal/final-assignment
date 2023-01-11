@@ -12,7 +12,7 @@ const EditCourse = () => {
 
   const loadData = async () => {
     await axios
-      .get(`http://localhost:8080/api/v1/courses/${id}`)
+      .get(`${process.env.SERVER_URL}/courses/${id}`)
       .then((response) => setData(response.data[0]))
       .catch((err) => console.error(err));
   };

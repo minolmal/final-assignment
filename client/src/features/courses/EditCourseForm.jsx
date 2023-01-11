@@ -20,7 +20,7 @@ const EditCourseForm = ({ course }) => {
   const onUpdateStudentClicked = async (e) => {
     if (canSave) {
       await axios
-        .patch(`http://localhost:8080/api/v1/courses/${course.id}`, {
+        .patch(`${process.env.SERVER_URL}/courses/${course.id}`, {
           title: title,
           credits: credits,
           instructor: instructor,

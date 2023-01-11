@@ -4,7 +4,6 @@ import { Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import Public from "./components/Public";
 import DashLayout from "./components/DashLayout";
-import Test from "./features/test/Test";
 import Welcome from "./features/Welcome";
 import StudentList from "./features/students/StudentList";
 import NewStudentForm from "./features/students/NewStudentForm";
@@ -20,8 +19,7 @@ function App() {
       <Route path="/" element={<Layout />}>
         {/* public routes */}
         <Route index element={<Public />} />
-        {/* <Route path='login' element={<Login />} />  */}
-        <Route path="test" element={<Test />} />
+        {/* <Route path="test" element={<Test />} /> */}
 
         {/* protected routes */}
         <Route path="dash" element={<DashLayout />}>

@@ -12,12 +12,10 @@ const Public = () => {
 
       <main className="public__main">
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste qui odit rerum earum
-          perspiciatis consequatur quaerat molestias molestiae eius quia? Quis ab nostrum non. Alias
-          ducimus dolor assumenda beatae architecto.
+          This is a welcome page. Click Dashboard to access Database.
         </p>
         <address className="public__addr">
-          Dan D. Repairs <br />
+          ABC Institute <br />
           555 Foo Drive
           <br />
           Foo City, CA 12345
@@ -25,8 +23,7 @@ const Public = () => {
           <a href="tel:+15555555555">(555)-555-5555</a>
         </address>
         <br />
-        <p>Owner: Dan Davidson</p>
-        <Link to='/test'> {">"} Test page </Link>
+        {/* <Link to='/test'> {">"} Test page </Link> */}
       </main>
       <footer>
         <Link to="/dash">Dashboard</Link>

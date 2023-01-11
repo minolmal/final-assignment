@@ -12,13 +12,13 @@ const NewCourseForm = () => {
   const [instructor, setInstructor] = useState("");
   const [error, setError] = useState("");
 
-  const canSave = [ title, credits, instructor].every(Boolean);
+  const canSave = [title, credits, instructor].every(Boolean);
 
   const onSaveStudentClicked = async (e) => {
     e.preventDefault();
     if (canSave) {
       await axios
-        .post("http://localhost:8080/api/v1/courses", {
+        .post(`${process.env.SERVER_URL}/courses`, {
           title,
           credits,
           instructor,
