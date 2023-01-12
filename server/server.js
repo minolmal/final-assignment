@@ -14,9 +14,9 @@ console.log(process.env.NODE_ENV);
 
 app.use(logger);
 
-app.use(cors({ origin: true, credentials: true }));
+app.use(cors(corsOptions));
 
-app.use(express.json({ extended: false }));
+app.use(express.json());
 
 app.use("/", express.static(path.join(__dirname, "public")));
 

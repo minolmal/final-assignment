@@ -14,20 +14,6 @@ const getAllCourses = asyncHandler(async (req, res) => {
     });
 });
 
-// @desc Get one student
-// @route GET /students
-// @access
-const getOneStudent = asyncHandler((req, res) => {
-  const { id } = req.params;
-  const sqlGetQuery = "SELECT * FROM students WHERE id=?";
-  db.promise()
-    .query(sqlGetQuery, id)
-    .then((result) => res.json(result[0]))
-    .catch((error) => {
-      return res.status(400).json({ message: "No students found" });
-    });
-});
-
 // @desc Create new course
 // @route POST /courses
 // @access
@@ -52,8 +38,7 @@ const createNewCourse = asyncHandler(async (req, res) => {
 // @route UPDATE /courses
 // @access
 const updateCourse = asyncHandler(async (req, res) => {
-  const { id } = req.params;
-  const { title, credits, instructor } = req.body;
+  const { title, credits, instructor, id } = req.body;
 
   // Confirm data
   if (!title || !credits || !instructor || !id) {
@@ -73,7 +58,7 @@ const updateCourse = asyncHandler(async (req, res) => {
 // @route GET /courses
 // @access
 const deleteCourse = asyncHandler(async (req, res) => {
-  const { id } = req.params;
+  const { id } = req.body;
 
   // Confirm data
   if (!id) {
@@ -89,4 +74,4 @@ const deleteCourse = asyncHandler(async (req, res) => {
     });
 });
 
-module.exports = { getAllCourses, getOneStudent, createNewCourse, updateCourse, deleteCourse };
+module.exports = { getAllCourses, createNewCourse, updateCourse, deleteCourse };
