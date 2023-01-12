@@ -3,7 +3,17 @@ import Course from "./Course";
 import { useGetCoursesQuery } from "./coursesApiSlice";
 
 const CoursesList = () => {
-  const { data: courses, isLoading, isSuccess, isError, error } = useGetCoursesQuery();
+  const {
+    data: courses,
+    isLoading,
+    isSuccess,
+    isError,
+    error,
+  } = useGetCoursesQuery(null, {
+    pollingInterval: 60000,
+    refetchOnFocus: true,
+    refetchOnMountOrArgChange: true,
+  });
 
   let content;
 
@@ -30,8 +40,8 @@ const CoursesList = () => {
             <th className="table__th course_status" scope="col">
               Title
             </th>
-            <th className="table__th course_status" scope="col">F
-              credits
+            <th className="table__th course_status" scope="col">
+              F credits
             </th>
             <th className="table__th course_status" scope="col">
               Instructor

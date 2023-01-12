@@ -3,5 +3,6 @@
   "cSpell.words": [
     "delerror",
     "errmsg"
-  ]
+  ],
+  "html.format.wrapLineLength": 95
 }

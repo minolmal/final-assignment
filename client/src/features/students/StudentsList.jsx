@@ -3,7 +3,17 @@ import { useGetStudentsQuery } from "./studentsApiSlice";
 import Student from "./Student";
 
 const StudentsList = () => {
-  const { data: students, isLoading, isSuccess, isError, error } = useGetStudentsQuery();
+  const {
+    data: students,
+    isLoading,
+    isSuccess,
+    isError,
+    error,
+  } = useGetStudentsQuery(null, {
+    pollingInterval: 60000,
+    refetchOnFocus: true,
+    refetchOnMountOrArgChange: true,
+  });
 
   let content;
 

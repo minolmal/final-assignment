@@ -12,7 +12,6 @@ export const studentsApiSlice = apiSlice.injectEndpoints({
       validateStatus: (response, result) => {
         return response.status === 200 && !result.isError;
       },
-      keepUnusedDataFor: 10,
       transformResponse: (responseData) => {
         const loadedStudents = responseData.map((student) => {
           // eslint-disable-next-line no-self-assign

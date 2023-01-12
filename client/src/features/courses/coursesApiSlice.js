@@ -12,7 +12,6 @@ export const coursesApiSlice = apiSlice.injectEndpoints({
       validateStatus: (response, result) => {
         return response.status === 200 && !result.isError;
       },
-      keepUnusedDataFor: 60,
       transformResponse: (responseData) => {
         const loadedCourses = responseData.map((course) => {
           course.course_id = course.id;
