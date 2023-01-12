@@ -38,4 +38,4 @@ app.all("*", (req, res) => {
 
 app.use(errorHandler);
 
-app.listen(PORT, () => console.log(`Server app listening on http://localhost:${PORT} ...`));
+app.listen(PORT, () => console.log(`Server app listening on ${PORT} ...`));
