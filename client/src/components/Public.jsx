@@ -11,9 +11,7 @@ const Public = () => {
       </header>
 
       <main className="public__main">
-        <p>
-          This is a welcome page. Click Dashboard to access Database.
-        </p>
+        <p>This is a welcome page. Click Dashboard to access Database.</p>
         <address className="public__addr">
           ABC Institute <br />
           555 Foo Drive

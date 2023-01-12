@@ -1,28 +1,34 @@
-import React, { memo } from "react";
+import React from "react";
+import { selectStudentById } from "./studentsApiSlice";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 
-const Student = ({ studentId, name, age, contact }) => {
+const Student = ({ studentId }) => {
+  const student = useSelector((state) => selectStudentById(state, studentId));
+
   const navigate = useNavigate();
 
-  const handleEdit = () => navigate(`/dash/students/${studentId}`);
+  if (student) {
+    const handleEdit = () => navigate(`/dash/students/${studentId}`);
 
-  return (
-    <tr className="table__row">
-      <td className="table__cell">{studentId}</td>
-      <td className="table__cell">{name}</td>
-      <td className="table__cell">{age}</td>
-      <td className="table__cell">{contact}</td>
-      <td className="table__cell">
-        <button className="icon-button table__button" onClick={handleEdit}>
-          <FontAwesomeIcon icon={faPenToSquare} />
-        </button>
-      </td>
-    </tr>
-  );
+    const cellStatus = student.active ? "" : "table__cell--inactive";
+
+    return (
+      <tr className="table__row student">
+        <td className={`table__cell ${cellStatus}`}>{student.id}</td>
+        <td className={`table__cell ${cellStatus}`}>{student.name}</td>
+        <td className={`table__cell ${cellStatus}`}>{student.age}</td>
+        <td className={`table__cell ${cellStatus}`}>{student.contact}</td>
+        <td className={`table__cell ${cellStatus}`}>
+          <button className="icon-button table__button" onClick={handleEdit}>
+            <FontAwesomeIcon icon={faPenToSquare} />
+          </button>
+        </td>
+      </tr>
+    );
+  } else return null;
 };
 
-const memoizedStudent = memo(Student);
-
-export default memoizedStudent;
+export default Student;
