@@ -23,7 +23,6 @@ const NewCourseForm = () => {
     }
   }, [isSuccess, navigate]);
 
-  // TODO: use isLoading for loading when query is running
   const canSave = [title, credits, instructor].every(Boolean) && !isLoading;
 
   const onSaveCourseClicked = async (e) => {

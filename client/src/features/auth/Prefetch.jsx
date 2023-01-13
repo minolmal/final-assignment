@@ -6,15 +6,8 @@ import { Outlet } from "react-router-dom";
 
 const Prefetch = () => {
   useEffect(() => {
-    console.log("subscribing");
-    const students = store.dispatch(studentsApiSlice.endpoints.getStudents.initiate());
-    const courses = store.dispatch(coursesApiSlice.endpoints.getCourses.initiate());
-
-    return () => {
-      console.log("unsubscribing");
-      students.unsubscribe();
-      courses.unsubscribe();
-    };
+    store.dispatch(studentsApiSlice.util.prefetch("getStudents", "studentsList", { force: true }));
+    store.dispatch(coursesApiSlice.util.prefetch("getCourses", "coursesList", { force: true }));
   }, []);
 
   return <Outlet />;

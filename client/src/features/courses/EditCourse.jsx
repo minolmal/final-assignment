@@ -1,15 +1,21 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { selectCourseById } from "./coursesApiSlice";
-import { useSelector } from "react-redux";
+import {  useGetCoursesQuery } from "./coursesApiSlice";
 import EditCourseForm from "./EditCourseForm";
+import { PulseLoader } from "react-spinners";
 
 const EditCourse = () => {
   const { id } = useParams();
 
-  const course = useSelector((state) => selectCourseById(state, id));
+  const { course } = useGetCoursesQuery("courseList", {
+    selectFromResult: ({ data }) => ({
+      course: data?.entities[id],
+    }),
+  });
 
-  const content = course ? <EditCourseForm course={course} /> : <p>Loading...</p>;
+  if (!course) return <PulseLoader color={"#fff"} />;
+
+  const content = <EditCourseForm course={course} />;
 
   return content;
 };

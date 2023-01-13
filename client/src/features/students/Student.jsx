@@ -1,12 +1,15 @@
-import React from "react";
-import { selectStudentById } from "./studentsApiSlice";
-import { useSelector } from "react-redux";
+import React, { memo } from "react";
+import { useGetStudentsQuery } from "./studentsApiSlice";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 
 const Student = ({ studentId }) => {
-  const student = useSelector((state) => selectStudentById(state, studentId));
+  const { student } = useGetStudentsQuery("studentsList", {
+    selectFromResult: ({ data }) => ({
+      student: data?.entities[studentId],
+    }),
+  });
 
   const navigate = useNavigate();
 
@@ -30,5 +33,6 @@ const Student = ({ studentId }) => {
     );
   } else return null;
 };
+const memoizedStudent = memo(Student);
 
-export default Student;
+export default memoizedStudent;

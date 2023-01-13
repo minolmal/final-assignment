@@ -1,6 +1,7 @@
 import React from "react";
 import Course from "./Course";
 import { useGetCoursesQuery } from "./coursesApiSlice";
+import { PulseLoader } from "react-spinners";
 
 const CoursesList = () => {
   const {
@@ -17,7 +18,7 @@ const CoursesList = () => {
 
   let content;
 
-  if (isLoading) content = <p>Loading...</p>;
+  if (isLoading) content = <PulseLoader color={"#fff"} />;
 
   if (isError) {
     content = <p className="errmsg">{error?.data?.message}</p>;

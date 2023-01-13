@@ -11,8 +11,10 @@ import CoursesList from "./features/courses/CoursesList";
 import EditCourse from "./features/courses/EditCourse";
 import NewCourseForm from "./features/courses/NewCourseForm";
 import Prefetch from "./features/auth/Prefetch";
+import useTitle from "./hooks/useTitle";
 
 function App() {
+  useTitle("ABC Institute");
   return (
     <Routes>
       <Route path="/" element={<Layout />}>

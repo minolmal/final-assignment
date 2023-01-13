@@ -1,15 +1,21 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { selectStudentById } from "./studentsApiSlice";
-import { useSelector } from "react-redux";
+import { useGetStudentsQuery } from "./studentsApiSlice";
 import EditStudentForm from "./EditStudentForm";
+import { PulseLoader } from "react-spinners";
 
 const EditStudent = () => {
   const { id } = useParams();
 
-  const student = useSelector((state) => selectStudentById(state, id));
+  const { student } = useGetStudentsQuery("studentsList", {
+    selectFromResult: ({ data }) => ({
+      student: data?.entities[id],
+    }),
+  });
 
-  const content = student ? <EditStudentForm student={student} /> : <p>Loading...</p>;
+  if (!student) return <PulseLoader color={"#fff"} />;
+
+  const content = <EditStudentForm student={student} />;
 
   return content;
 };

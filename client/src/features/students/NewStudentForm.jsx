@@ -23,7 +23,6 @@ const NewStudentForm = () => {
     }
   }, [isSuccess, navigate]);
 
-  // TODO: use isLoading for loading when query is running
   const canSave = [name, age, contact].every(Boolean) && !isLoading;
 
   const onSaveStudentClicked = async (e) => {

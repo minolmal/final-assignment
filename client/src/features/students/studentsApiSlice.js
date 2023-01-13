@@ -8,10 +8,12 @@ const initialState = studentsAdapter.getInitialState();
 export const studentsApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getStudents: builder.query({
-      query: () => "/students",
-      validateStatus: (response, result) => {
-        return response.status === 200 && !result.isError;
-      },
+      query: () => ({
+        url: "/students",
+        validateStatus: (response, result) => {
+          return response.status === 200 && !result.isError;
+        },
+      }),
       transformResponse: (responseData) => {
         const loadedStudents = responseData.map((student) => {
           // eslint-disable-next-line no-self-assign

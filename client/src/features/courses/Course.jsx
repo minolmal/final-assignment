@@ -1,12 +1,15 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React, { memo } from "react";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
-import { selectCourseById } from "./coursesApiSlice";
+import { useGetCoursesQuery } from "./coursesApiSlice";
 
 const Course = ({ courseId }) => {
-  const course = useSelector((state) => selectCourseById(state, courseId));
+  const { course } = useGetCoursesQuery("coursesList", {
+    selectFromResult: ({ data }) => ({
+      course: data?.entities[courseId],
+    }),
+  });
 
   const navigate = useNavigate();
 
@@ -28,5 +31,6 @@ const Course = ({ courseId }) => {
     );
   } else return null;
 };
+const memoizedCourse = memo(Course);
 
-export default Course;
+export default memoizedCourse;
