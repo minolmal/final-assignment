@@ -20,9 +20,9 @@ const DashFooter = () => {
   const content = (
     <footer className="dash-footer">
       {goHomeButton}
-      {/* TODO: {goHomeButton} {username} {status}*/}
-      <p>Current User: </p>
-      <p>Status: </p>
+      {/* TODO: implement auth and get Users and status*/}
+      <p>Current User: Joe Johns</p>
+      <p>Status: Admin</p>
     </footer>
   );
   return content;

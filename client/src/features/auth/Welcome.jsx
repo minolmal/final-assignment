@@ -14,7 +14,7 @@ const Welcome = () => {
     <section className="welcome">
       <p>{today}</p>
       <h1>Welcome!</h1>
-
+      {/* TODO: add auth to restrict access based on user status */}
       <p>
         <Link to="/dash/students">View Students</Link>
       </p>

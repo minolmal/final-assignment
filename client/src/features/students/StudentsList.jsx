@@ -9,7 +9,7 @@ const StudentsList = () => {
     isSuccess,
     isError,
     error,
-  } = useGetStudentsQuery(null, {
+  } = useGetStudentsQuery("studentsList", {
     pollingInterval: 60000,
     refetchOnFocus: true,
     refetchOnMountOrArgChange: true,
